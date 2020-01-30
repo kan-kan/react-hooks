@@ -1,11 +1,13 @@
+import { DELETE_ALL_EVENTS, CREATE_EVENT, DELETE_EVENT } from "../actions";
 const events = (state = [], action) => {
   switch (action.type) {
-    case "CREATE_EVENT":
+    case CREATE_EVENT:
       let id = state.length === 0 ? 1 : state[state.length - 1].id + 1;
       return [...state, { id, title: action.title, body: action.body }];
-    case "DELETE_EVENT":
+    case DELETE_EVENT:
+      console.log("fdksf");
       return state.filter(event => event.id !== action.id);
-    case "DELETE_ALL_EVENT":
+    case DELETE_ALL_EVENTS:
       return [];
     default:
       return state;
