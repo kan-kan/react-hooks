@@ -7,16 +7,14 @@ import reducer from "../reducers";
 import EventForm from "./EventForm";
 import AppContext from "../contexts/AppContext";
 
-console.log(AppContext);
-
 const App = () => {
   const [state, dispatch] = useReducer(reducer, []);
 
   return (
-    <AppContext.Provider value={"HEllo, I am a Provider."}>
+    <AppContext.Provider value={{ state, dispatch }}>
       <div className="container-fluid">
-        <EventForm state={state} dispatch={dispatch} />
-        <Events state={state} dispatch={dispatch} />
+        <EventForm />
+        <Events />
       </div>
     </AppContext.Provider>
   );
